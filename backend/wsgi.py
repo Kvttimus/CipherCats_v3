@@ -1,0 +1,16 @@
+"""Entry point.
+
+Dev:   python wsgi.py            (http://localhost:5000)
+Prod:  gunicorn wsgi:app         (Render)
+"""
+
+from dotenv import load_dotenv
+
+load_dotenv()
+
+from app import create_app  # noqa: E402
+
+app = create_app()
+
+if __name__ == "__main__":
+    app.run(port=5000, debug=True)
